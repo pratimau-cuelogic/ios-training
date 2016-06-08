@@ -49,6 +49,7 @@
 		9CF99F641D07E0A500C2C405 /* ShopAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShopAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF99F681D07E0A500C2C405 /* ShopAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAppUITests.swift; sourceTree = "<group>"; };
 		9CF99F6A1D07E0A500C2C405 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CF99F761D081EA800C2C405 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +107,7 @@
 				9CF99F511D07E0A500C2C405 /* LaunchScreen.storyboard */,
 				9CF99F541D07E0A500C2C405 /* Info.plist */,
 				9CF99F4C1D07E0A500C2C405 /* ShopApp.xcdatamodeld */,
+				9CF99F761D081EA800C2C405 /* MyPlayground.playground */,
 			);
 			path = ShopApp;
 			sourceTree = "<group>";
@@ -488,6 +490,7 @@
 				9CF99F6F1D07E0A500C2C405 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9CF99F701D07E0A500C2C405 /* Build configuration list for PBXNativeTarget "ShopAppTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +499,7 @@
 				9CF99F721D07E0A500C2C405 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9CF99F731D07E0A500C2C405 /* Build configuration list for PBXNativeTarget "ShopAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +508,7 @@
 				9CF99F751D07E0A500C2C405 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
