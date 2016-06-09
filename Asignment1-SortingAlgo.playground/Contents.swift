@@ -1,12 +1,26 @@
-//Assignment 1 - Implement Merge Sort algorithm
+/* Assignment 1 - Implement Merge Sort algorithm
+
+Swift concepts used:
+
+1. Constants and variables
+2. Optional variables
+2. Collections - Array
+3. Functions
+4. Loops
+5. Condiional Statements
+*/
 
 import UIKit
 
 // list to sort
 let aList = [23, 11, 34, 20, 33, 55, 87, 76, 90, 43, 77]
 
-func mergeSort(list: [Int]) -> [Int] {
+func mergeSort(list: [Int]) -> [Int]? {
 
+    if(list.count == 0) {
+        return nil
+    }
+    
     if (list.count == 1) {
         return list
     }
@@ -17,8 +31,8 @@ func mergeSort(list: [Int]) -> [Int] {
     let leftPart = Array(leftSlice)
     let rightPart = Array(rightSlice)
     
-    let leftSorted = mergeSort(leftPart)
-    let rightSorted = mergeSort(rightPart)
+    let leftSorted = mergeSort(leftPart)!
+    let rightSorted = mergeSort(rightPart)!
     
     let totalCount = leftSorted.count + rightSorted.count
     var li = 0, ri = 0, i = 0
@@ -51,5 +65,5 @@ func mergeSort(list: [Int]) -> [Int] {
     return sortedList
 }
 
-let sortedList = mergeSort(aList)
+let sortedList = mergeSort(aList)!
 print("Sorted List: \(sortedList)")
