@@ -156,13 +156,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Detail View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5B-b3-FXS">
-                                <rect key="frame" x="208" y="287" width="184" height="26"/>
+                                <rect key="frame" x="208" y="45" width="184" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="26X-OV-aEa">
+                                <rect key="frame" x="225" y="150" width="150" height="150"/>
+                                <color key="backgroundColor" red="0.80081937309999995" green="0.93266190969999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="hOQ-M8-U9j"/>
+                                    <constraint firstAttribute="width" constant="150" id="mkI-Nq-bej"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="SGc-J3-kM9" appends="YES" id="p1N-Oy-Wlf"/>
+                                </connections>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epf-28-z6x">
-                                <rect key="frame" x="285" y="358" width="30" height="30"/>
+                                <rect key="frame" x="285" y="507" width="30" height="30"/>
                                 <state key="normal" title="Exit"/>
                                 <connections>
                                     <action selector="onExitClicked:" destination="i9E-aa-bi8" eventType="touchUpInside" id="jHv-Pi-9oC"/>
@@ -171,14 +183,27 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="epf-28-z6x" firstAttribute="top" secondItem="E5B-b3-FXS" secondAttribute="bottom" constant="45" id="Txv-Od-M5h"/>
-                            <constraint firstItem="E5B-b3-FXS" firstAttribute="centerY" secondItem="Eza-Ca-mUh" secondAttribute="centerY" id="Xw7-a2-2Ms"/>
+                            <constraint firstItem="Exn-vS-yiQ" firstAttribute="top" secondItem="epf-28-z6x" secondAttribute="bottom" constant="63" id="9aH-od-V1E"/>
+                            <constraint firstItem="26X-OV-aEa" firstAttribute="top" secondItem="E5B-b3-FXS" secondAttribute="bottom" constant="79" id="FmD-Td-O6J"/>
+                            <constraint firstAttribute="bottom" secondItem="26X-OV-aEa" secondAttribute="bottom" constant="300" id="SBm-Ps-JSy"/>
+                            <constraint firstItem="26X-OV-aEa" firstAttribute="centerX" secondItem="Eza-Ca-mUh" secondAttribute="centerX" id="hnm-wy-E7S"/>
+                            <constraint firstItem="E5B-b3-FXS" firstAttribute="top" secondItem="nzu-kh-EBk" secondAttribute="bottom" constant="25" id="jrS-qh-nvo"/>
                             <constraint firstItem="epf-28-z6x" firstAttribute="centerX" secondItem="E5B-b3-FXS" secondAttribute="centerX" id="mrx-S9-6Sh"/>
                             <constraint firstItem="E5B-b3-FXS" firstAttribute="centerX" secondItem="Eza-Ca-mUh" secondAttribute="centerX" id="pn4-z8-vwS"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="exitButton" destination="epf-28-z6x" id="zqg-6Q-WQc"/>
+                        <outlet property="tempView" destination="26X-OV-aEa" id="jD4-Pf-xtP"/>
+                        <outlet property="titleLabel" destination="E5B-b3-FXS" id="G1j-zs-OJI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="egF-og-2oi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="SGc-J3-kM9">
+                    <connections>
+                        <action selector="onViewTapped:" destination="i9E-aa-bi8" id="KnZ-qa-UWg"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1528" y="72"/>
         </scene>
