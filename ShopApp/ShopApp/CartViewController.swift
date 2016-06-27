@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CartViewController: UITableViewController {
+class CartViewController: UITableViewController, ProductDetailViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +48,11 @@ class CartViewController: UITableViewController {
          //Configure the cell...
 
         return cell
+    }
+    
+    // MARK: - ProductDetailViewDelegate
+    func getProductTitle() -> String {
+        return "Cart Product Detail"
     }
 
     /*
@@ -89,10 +94,14 @@ class CartViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    */
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let viewController = segue.destinationViewController as? ProductDetailViewController
+        viewController?.delegate = self
     }
-    */
+    
 
 }

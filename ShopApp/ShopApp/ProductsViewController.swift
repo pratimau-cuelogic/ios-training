@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "ProductsCell"
 
-class ProductsViewController: UICollectionViewController {
+class ProductsViewController: UICollectionViewController, ProductDetailViewDelegate {
     
     var productsList = [Product(name: "Product 1", price: 2000), Product(name: "Product 2", price: 2000)
                         ,Product(name: "Product 3", price: 2000), Product(name: "Product 4", price: 2000)
@@ -32,21 +32,31 @@ class ProductsViewController: UICollectionViewController {
     }
 
     /*
-    // MARK: - Navigation
+     MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
+     In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     */
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+         //Get the new view controller using [segue destinationViewController].
+         //Pass the selected object to the new view controller.
+        
+        let viewController = segue.destinationViewController as? ProductDetailViewController
+        viewController?.delegate = self
+    }
 
+    // MARK: ProductDetailViewDelegate
+    
+    func getProductTitle() -> String {
+        return "Product Title"
+    }
+    
+    
     // MARK: UICollectionViewDataSource
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return productsList.count/2
     }
-
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 2
@@ -57,9 +67,10 @@ class ProductsViewController: UICollectionViewController {
     
         // Configure the cell
         let productCell = cell as? ProductCell
-        productCell?.productName.text = productsList[indexPath.row].productName
-        productCell?.productPrice.text = String(productsList[indexPath.row].productPrice!)
-    
+        let product = productsList[indexPath.row]
+        productCell?.productName.text = product.productName
+        productCell?.productPrice.text = String(product.productPrice!)
+        
         return cell
     }
 

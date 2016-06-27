@@ -14,10 +14,12 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var exitButton: UIButton!
     
+    weak var delegate: ProductDetailViewDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayer()
-    
+        setupProductDetailView()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -33,6 +35,10 @@ class ProductDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+
+    func setupProductDetailView() {
+        titleLabel.text = delegate?.getProductTitle()
+    }
     
     // MARK: - IBActions
 
