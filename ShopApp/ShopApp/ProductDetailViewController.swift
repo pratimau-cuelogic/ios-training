@@ -10,16 +10,25 @@ import UIKit
 
 class ProductDetailViewController: UIViewController {
 
+    var product : Product?
+    var kvoContext = 0
+    
     @IBOutlet weak var tempView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var exitButton: UIButton!
+    @IBOutlet weak var productName: UILabel!
+    @IBOutlet weak var productPrice: UILabel!
     
     weak var delegate: ProductDetailViewDelegate?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayer()
         setupProductDetailView()
+        product?.addObserver(self, forKeyPath: "productPrice", options: .New, context: &kvoContext)
+        
+        NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector:Selector("update"), userInfo: nil, repeats: false)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -34,10 +43,17 @@ class ProductDetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
 
+    func update() {
+        product?.productPrice += 500
+    }
+    
     func setupProductDetailView() {
         titleLabel.text = delegate?.getProductTitle()
+        productName.text = product?.productName
+        if let price = product?.productPrice {
+            productPrice.text = String(price)
+        }
     }
     
     // MARK: - IBActions
@@ -80,6 +96,20 @@ class ProductDetailViewController: UIViewController {
         tempView.layer.addAnimation(cornerAnim, forKey: "cornerRadius")
     }
 
+    // MARK: - KVO methods
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        if (context == &kvoContext) {
+            let newPrice = (object as? Product)?.productPrice
+            productPrice.text = String(newPrice!)
+        }
+    }
+    
+    // MARK: - deinit
+    
+    deinit {
+        product?.removeObserver(self, forKeyPath: "productPrice")
+    }
     
     /*
     // MARK: - Navigation

@@ -180,20 +180,47 @@
                                     <action selector="onExitClicked:" destination="i9E-aa-bi8" eventType="touchUpInside" id="jHv-Pi-9oC"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pm1-Qr-Gz9">
+                                <rect key="frame" x="250" y="360" width="100" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="uGt-NQ-Uus"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Kv-G2-FZH">
+                                <rect key="frame" x="284" y="401" width="33" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Exn-vS-yiQ" firstAttribute="top" secondItem="epf-28-z6x" secondAttribute="bottom" constant="63" id="9aH-od-V1E"/>
+                            <constraint firstItem="pm1-Qr-Gz9" firstAttribute="centerX" secondItem="Eza-Ca-mUh" secondAttribute="centerX" constant="56" id="FYZ-4g-ngl"/>
                             <constraint firstItem="26X-OV-aEa" firstAttribute="top" secondItem="E5B-b3-FXS" secondAttribute="bottom" constant="79" id="FmD-Td-O6J"/>
                             <constraint firstAttribute="bottom" secondItem="26X-OV-aEa" secondAttribute="bottom" constant="300" id="SBm-Ps-JSy"/>
+                            <constraint firstItem="9Kv-G2-FZH" firstAttribute="centerX" secondItem="Eza-Ca-mUh" secondAttribute="centerX" id="Xgm-4k-12M"/>
+                            <constraint firstItem="pm1-Qr-Gz9" firstAttribute="centerX" secondItem="Eza-Ca-mUh" secondAttribute="centerX" id="gaY-KI-C0M"/>
+                            <constraint firstItem="9Kv-G2-FZH" firstAttribute="top" secondItem="pm1-Qr-Gz9" secondAttribute="bottom" constant="20" id="hlV-Hq-XPI"/>
                             <constraint firstItem="26X-OV-aEa" firstAttribute="centerX" secondItem="Eza-Ca-mUh" secondAttribute="centerX" id="hnm-wy-E7S"/>
                             <constraint firstItem="E5B-b3-FXS" firstAttribute="top" secondItem="nzu-kh-EBk" secondAttribute="bottom" constant="25" id="jrS-qh-nvo"/>
                             <constraint firstItem="epf-28-z6x" firstAttribute="centerX" secondItem="E5B-b3-FXS" secondAttribute="centerX" id="mrx-S9-6Sh"/>
                             <constraint firstItem="E5B-b3-FXS" firstAttribute="centerX" secondItem="Eza-Ca-mUh" secondAttribute="centerX" id="pn4-z8-vwS"/>
+                            <constraint firstItem="pm1-Qr-Gz9" firstAttribute="top" secondItem="26X-OV-aEa" secondAttribute="bottom" constant="60" id="qrl-6y-Ybu"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="FYZ-4g-ngl"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="exitButton" destination="epf-28-z6x" id="zqg-6Q-WQc"/>
+                        <outlet property="productName" destination="pm1-Qr-Gz9" id="ddu-bA-BHd"/>
+                        <outlet property="productPrice" destination="9Kv-G2-FZH" id="dKt-Pl-xFo"/>
                         <outlet property="tempView" destination="26X-OV-aEa" id="jD4-Pf-xtP"/>
                         <outlet property="titleLabel" destination="E5B-b3-FXS" id="G1j-zs-OJI"/>
                     </connections>

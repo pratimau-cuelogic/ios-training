@@ -18,6 +18,8 @@ class ProductsViewController: UICollectionViewController, ProductDetailViewDeleg
                         , Product(name: "Product 7", price: 2000), Product(name: "Product 8", price: 2000)
                         , Product(name: "Product 9", price: 2000), Product(name: "Product 10", price: 2000)]
 
+    var selectedIndex = -1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -43,6 +45,9 @@ class ProductsViewController: UICollectionViewController, ProductDetailViewDeleg
         
         let viewController = segue.destinationViewController as? ProductDetailViewController
         viewController?.delegate = self
+        
+        let product = self.productsList[selectedIndex]
+        viewController?.product = product
     }
 
     // MARK: ProductDetailViewDelegate
@@ -55,11 +60,11 @@ class ProductsViewController: UICollectionViewController, ProductDetailViewDeleg
     // MARK: UICollectionViewDataSource
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return productsList.count/2
+        return 1
     }
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return productsList.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -69,11 +74,11 @@ class ProductsViewController: UICollectionViewController, ProductDetailViewDeleg
         let productCell = cell as? ProductCell
         let product = productsList[indexPath.row]
         productCell?.productName.text = product.productName
-        productCell?.productPrice.text = String(product.productPrice!)
+        productCell?.productPrice.text = String(product.productPrice)
         
         return cell
     }
-
+    
     // MARK: UICollectionViewDelegate
 
     /*
@@ -83,12 +88,10 @@ class ProductsViewController: UICollectionViewController, ProductDetailViewDeleg
     }
     */
 
-    /*
-    // Uncomment this method to specify if the specified item should be selected
     override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+        selectedIndex = indexPath.row
         return true
     }
-    */
 
     /*
     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
