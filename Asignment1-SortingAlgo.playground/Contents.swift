@@ -1,4 +1,5 @@
-/* Assignment 1 - Implement Merge Sort algorithm
+/* 
+Assignment 1 - Implement Merge Sort algorithm
 
 Swift concepts used:
 
