@@ -52,7 +52,7 @@ class ProductDetailViewController: UIViewController {
         titleLabel.text = delegate?.getProductTitle()
         productName.text = product?.productName
         if let price = product?.productPrice {
-            productPrice.text = String(price)
+            productPrice.text = price.rupeesSuffix
         }
     }
     
@@ -101,7 +101,7 @@ class ProductDetailViewController: UIViewController {
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if (context == &kvoContext) {
             let newPrice = (object as? Product)?.productPrice
-            productPrice.text = String(newPrice!)
+            productPrice.text = String(newPrice!.rupeesSuffix)
         }
     }
     
